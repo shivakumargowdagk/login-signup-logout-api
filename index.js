@@ -41,7 +41,6 @@ app.post('/api/register',function(req,res){
     
     User.findOne({email:newuser.email},function(err,user){
         if(user) return res.status(400).json({ auth : false, message :"email exits"});
- 
         newuser.save((err,doc)=>{
             if(err) {console.log(err);
                 return res.status(400).json({ success : false});}
